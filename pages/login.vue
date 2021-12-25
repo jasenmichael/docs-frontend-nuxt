@@ -3,7 +3,7 @@
     class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0"
   >
     <div class="bg-white overflow-hidden shadow sm:rounded-lg p-6">
-      <h2 class="text-center uppercase text-lg">Login</h2>
+      <h2 class="text-center uppercase text-lg">Yo Login</h2>
       <div class="px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div class="mb-4">
           <label
