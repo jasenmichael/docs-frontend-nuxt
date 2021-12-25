@@ -73,7 +73,6 @@ export default {
         password: this.password,
       })
       if (this.$strapi.user) {
-        //
         this.$router.push('/')
       }
     },
