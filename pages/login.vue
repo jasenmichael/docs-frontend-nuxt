@@ -55,10 +55,10 @@ export default {
   name: 'NuxtTutorial',
   layout: 'BlankLayout',
   asyncData({ $config }) {
-    const { identifier = '', password = '' } = $config?.dev?.auth
-    return { identifier, password }
-    // if ($config?.dev?.auth) {
-    // }
+    if ($config?.dev?.auth) {
+      const { identifier, password } = $config.dev.auth
+      return { identifier, password }
+    }
   },
   data: () => {
     return {
