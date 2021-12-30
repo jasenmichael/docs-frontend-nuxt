@@ -16,3 +16,10 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
+
+docs potential structure:
+/content
+
+- /Developer
+- /Services
+- /
