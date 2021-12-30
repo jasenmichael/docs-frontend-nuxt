@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0"
+    class="relative flex items-center justify-center min-h-screen bg-slate-300 sm:items-center sm:pt-0"
   >
     <div class="bg-white overflow-hidden shadow sm:rounded-lg p-6">
       <h2 class="text-center uppercase text-lg">Login</h2>
@@ -53,6 +53,11 @@
 <script>
 export default {
   name: 'NuxtTutorial',
+  layout: 'BlankLayout',
+  asyncData({ $config }) {
+    const { identifier, password } = $config.dev.auth
+    return { identifier, password }
+  },
   data: () => {
     return {
       identifier: '',
