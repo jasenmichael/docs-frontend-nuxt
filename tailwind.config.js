@@ -7,7 +7,18 @@ module.exports = {
     './nuxt.config.{js,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        heading: 'Raleway',
+        body: 'Roboto', // 'Montserrat',
+        accent: 'Raleway',
+        code: 'Source\\ Code\\ Pro',
+      },
+    },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwind-hamburgers'),
+    require('tailwind-scrollbar-hide'),
+  ],
 }
