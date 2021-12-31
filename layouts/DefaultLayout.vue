@@ -43,7 +43,7 @@
         <div
           class="p-8 lg:ml-[400px] max-w-[1200px] bg-slate-200 flex-grow w-full h-body"
         >
-          <Nuxt />
+          <Nuxt keep-alive />
         </div>
       </div>
     </div>
