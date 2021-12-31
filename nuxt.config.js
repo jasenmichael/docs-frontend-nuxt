@@ -1,11 +1,5 @@
 import copyContentImages from './plugins/copyContentImages'
 
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config()
-} else if (process.env.NODE_ENV === 'production') {
-  require('dotenv').config({ path: '/var/www/.env' })
-}
-
 copyContentImages('content', 'static', ['.md'])
 
 export default {
