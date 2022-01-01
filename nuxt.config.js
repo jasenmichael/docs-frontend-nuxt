@@ -99,6 +99,7 @@ export default {
               },
             }
           : null,
+      ghToken: process.env.GH_TOKEN || null,
     }
   },
   build: {

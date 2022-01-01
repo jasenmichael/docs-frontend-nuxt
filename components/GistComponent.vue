@@ -60,13 +60,17 @@ export default {
           this.url.substring(this.url.lastIndexOf('/') + 1)
         : null
 
-      if (gistUrl) {
-        const gist = await this.$axios.$get(gistUrl, {
-          headers: {
-            Authorization: `Bearer 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`,
+      const headers = this.$config.ghToken
+        ? {
+            Authorization: `Bearer ${this.$config.ghToken}`,
             'Content-Type': 'application/json',
-          },
-        })
+          }
+        : {
+            'Content-Type': 'application/json',
+          }
+
+      if (gistUrl) {
+        const gist = await this.$axios.$get(gistUrl, { headers })
         this.gist = gist
         Object.keys(gist.files).forEach((file) => {
           const gistFile = gist.files[file]
