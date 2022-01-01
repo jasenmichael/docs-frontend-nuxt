@@ -1,7 +1,7 @@
 <template>
   <button
     ref="copy"
-    class="absolute dark rounded-xl flex items-center justify-center p-4 border-2 text-xl w-10 h-10 -mt-14 mr-4 right-0 transform transition-all ease-in-out duration-500"
+    class="absolute dark rounded-xl flex items-center justify-center p-5 border-2 text-xl w-8 h-8 -mt-16 mr-3 right-0 transform transition-all ease-in-out duration-500"
     :class="
       state === 'copied'
         ? 'text-green-300 border-green-300'
