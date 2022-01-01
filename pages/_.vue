@@ -61,18 +61,24 @@
         >
           {{ section.title }}
         </div>
-        <nuxt-content class="scroll-to w-full" :document="section" />
+        <nuxt-content
+          class="scroll-to w-full overflow-scroll"
+          :document="section"
+        />
       </div>
     </section>
 
     <!-- <pre
       class="prose overflow-scroll py-6 mr-auto dark px-4 min-w-full max-w-[calc(100vw-428px)]"
-      >{{ $store.state.menu }}</pre
+      >{{ pageSections }}</pre
     > -->
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import CodeCopyButton from '../components/CodeCopyButton'
+
 export default {
   name: 'SectionIndex',
   layout: 'DefaultLayout',
@@ -90,7 +96,6 @@ export default {
       })
     }
     flattenMenu(JSON.parse(JSON.stringify(store.getters.getMenu)))
-
     const pageSubFolders = flatMenu.filter((item) => {
       // console.log('1 path depth', contentPath.split('/').length)
       // console.log('3 item.depth', item.depth)
@@ -101,7 +106,6 @@ export default {
         item.dir.includes(contentPath)
       )
     })
-
     // console.log(pageSubFolders)
 
     const pageSections = await $content(contentPath)
@@ -129,6 +133,16 @@ export default {
       window.removeEventListener('scroll', this.handleScroll)
     }
   },
+  mounted() {
+    setTimeout(() => {
+      const blocks = document.getElementsByClassName('nuxt-content-highlight')
+      for (const block of blocks) {
+        const CopyButton = Vue.extend(CodeCopyButton)
+        const component = new CopyButton().$mount()
+        block.appendChild(component.$el)
+      }
+    }, 800)
+  },
   methods: {
     handleScroll() {
       if (window.scrollY === 0) {
@@ -138,3 +152,9 @@ export default {
   },
 }
 </script>
+
+<style>
+/* pre[class*='language-'] {
+  position: static !important;
+} */
+</style>
