@@ -13,9 +13,13 @@
       <icon icon="link" />
     </a>
     <div v-for="(file, i) in gistFiles" :key="i">
-      <div class="py-2 nuxt-content-highlight">
-        <span class="filename">
-          <a :href="`${gist.html_url}#file-${file.filename.replace('.', '-')}`">
+      <div class="nuxt-content-highlight">
+        <span class="filename h-9">
+          <icon :icon="['fab', 'github']" class="" />
+          <a
+            :href="`${gist.html_url}#file-${file.filename.replace('.', '-')}`"
+            class="!pl-0"
+          >
             {{ file.filename }}
             <icon icon="link" />
           </a>
