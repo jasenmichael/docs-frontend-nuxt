@@ -6,8 +6,9 @@
     >
       <!-- :class="scrollPos ? 'h-10' : 'h-16'" -->
       <div
-        class="flex justify-between px-8 w-full max-w-[1600px] text-zinc-300 bg-slate-600 py-1"
+        class="flex justify-between px-8 w-full max-w-[1600px] text-zinc-300 bg-slate-600 py-1 space-x-4"
       >
+        <!-- logo/brand -->
         <div class="flex items-center">
           <!-- hamburger only below lg -->
           <button
@@ -23,6 +24,13 @@
             >LystDocs</nuxt-link
           >
         </div>
+
+        <!-- search -->
+        <!-- <div class="max-w-md">
+        <SearchComponent />
+        </div> -->
+
+        <!-- user -->
         <button class="mr-1" @click="logout">
           <icon class="mr-1" icon="sign-out-alt" />Logout
         </button>
@@ -43,7 +51,7 @@
         <div
           class="p-8 lg:ml-[400px] max-w-[1200px] bg-slate-200 flex-grow w-full h-body"
         >
-          <Nuxt keep-alive />
+          <Nuxt keep-alive :keep-alive-props="{ exclude: ['GistComponent'] }" />
         </div>
       </div>
     </div>

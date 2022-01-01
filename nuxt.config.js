@@ -1,5 +1,4 @@
 import copyContentImages from './plugins/copyContentImages'
-
 copyContentImages('content', 'static', ['.md'])
 
 export default {
@@ -24,18 +23,26 @@ export default {
     '@nuxtjs/fontawesome',
   ],
   modules: [
-    // '@nuxtjs/axios',
+    '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxt/content',
     '@nuxtjs/strapi',
+    '@nuxtjs/markdownit',
   ],
+  markdownit: {
+    preset: 'default',
+    html: true,
+    linkify: true,
+    typographer: true,
+    breaks: true,
+    use: ['markdown-it-div', 'markdown-it-attrs', 'markdown-it-prism'],
+  },
   // axios: {},
   pwa: {
     manifest: {
       lang: 'en',
     },
   },
-  content: {},
   strapi: {
     url:
       process.env.NODE_ENV === 'development'
@@ -61,14 +68,25 @@ export default {
   },
   fontawesome: {
     icons: {
-      solid: ['faCog', 'faChevronRight', 'faChevronDown', 'faSignOutAlt'],
+      solid: [
+        'faCog',
+        'faChevronRight',
+        'faChevronDown',
+        'faSignOutAlt',
+        'faLink',
+        'faCopy',
+        'faCheck',
+      ],
+      brands: ['faGithub'],
     },
     component: 'icon',
-    // component: 'FaIcon',
-    // suffix: false
-    // suffix: {
-    //   suffix: false
-    // }
+  },
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-a11y-dark.css',
+      },
+    },
   },
   publicRuntimeConfig: () => {
     return {

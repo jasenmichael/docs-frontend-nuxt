@@ -61,3 +61,38 @@
     @apply scroll-mt-[64px] lg:scroll-mt-[70px];
   }
 }
+
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  @apply !bg-slate-800;
+}
+
+.nuxt-content {
+  @apply break-words;
+}
+
+.nuxt-content .nuxt-content-highlight > .filename {
+  @apply block bg-gray-700 text-gray-100 font-mono text-sm tracking-tight py-2 px-4 -mb-3 rounded-t;
+}
+
+/* .nuxt-content .nuxt-content-highlight > .filename {
+  @apply relative;
+}
+
+.nuxt-content .nuxt-content-highlight > .filename {
+  @apply absolute top-3 right-4 opacity-75 space-x-2;
+}
+
+.nuxt-content .nuxt-content-highlight > .filename {
+  @apply inline-block;
+} */
+
+.nuxt-content .nuxt-content-highlight > .filename a {
+  @apply cursor-pointer;
+}
+
+.nuxt-content .nuxt-content-highlight > .filename a,
+.nuxt-content .nuxt-content-highlight > .filename button,
+.nuxt-content .nuxt-content-highlight > .filename span {
+  @apply text-gray-300 hover:text-gray-100 text-sm px-2 bg-slate-700 shadow-sm rounded-full leading-tight;
+}
