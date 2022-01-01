@@ -75,7 +75,7 @@ pre[class*='language-'] {
   @apply block bg-gray-700 text-gray-100 font-mono text-sm tracking-tight py-2 px-4 -mb-3 rounded-t;
 }
 
-nuxt-content-highlight .nuxt-content .nuxt-content-highlight {
+.nuxt-content .nuxt-content-highlight {
   @apply relative;
 }
 
