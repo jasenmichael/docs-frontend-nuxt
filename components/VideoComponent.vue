@@ -6,7 +6,11 @@
       </slot>
     </h6>
     <!-- video element -->
-    <video v-if="src && type == 'video'" controls class="max-w-md mb-1 mt-2">
+    <video
+      v-if="src && type == 'video'"
+      controls
+      class="max-w-md mb-1 mt-2 aspect-video w-full"
+    >
       <source :src="src" type="video/mp4" />
       Oops. HTML 5 video not supported.
     </video>
