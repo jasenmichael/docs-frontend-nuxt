@@ -4,7 +4,6 @@
     <header
       class="fixed top-0 flex flex-col items-center justify-center w-full bg-slate-300 z-50 h-10"
     >
-      <!-- :class="scrollPos ? 'h-10' : 'h-16'" -->
       <div
         class="flex justify-between px-8 w-full max-w-[1600px] text-zinc-300 bg-slate-600 py-1 space-x-4"
       >
