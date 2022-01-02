@@ -94,6 +94,6 @@ pre[class*='language-'] {
 
 .nuxt-content .nuxt-content-highlight > .filename a,
 .nuxt-content .nuxt-content-highlight > .filename button,
-.nuxt-content .nuxt-content-highlight > .filename span {
-  @apply text-gray-300 hover:text-gray-100 text-sm px-2 bg-slate-700 shadow-sm rounded-full leading-tight;
+.nuxt-content .nuxt-content-highlight > span.filename {
+  @apply text-gray-300 hover:text-gray-100 text-sm px-4 bg-slate-700 shadow-sm  leading-tight;
 }

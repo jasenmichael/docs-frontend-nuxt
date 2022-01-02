@@ -11,13 +11,13 @@
         <div
           class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
         >
-          <IconSearch class="h-5 w-5 text-gray-500" />
+          <icon icon="search" class="h-5 w-5 text-gray-500" />
         </div>
         <input
           id="search"
           ref="search"
           v-model="q"
-          class="block w-full pl-10 pr-3 py-2 truncate leading-5 placeholder-gray-500 border border-transparent text-gray-700 dark:text-white dark-focus:text-white focus:border-gray-300 dark-focus:border-gray-700 rounded-md focus:outline-none focus:bg-white dark-focus:bg-gray-900 bg-gray-200 dark:bg-gray-800"
+          class="block w-full pl-10 pr-3 py-2 truncate leading-5 placeholder-gray-500 border border-transparent text-white dark-focus:text-white focus:border-gray-700 rounded-md focus:outline-none focus:bg-gray-900 0 bg-gray-800"
           :class="{ 'rounded-b-none': focus && (searching || results.length) }"
           :placeholder="'search'"
           type="search"
@@ -27,7 +27,7 @@
         />
       </div>
     </div>
-    <ul
+    <!-- <ul
       v-show="focus && (searching || results.length)"
       class="z-10 absolute w-full flex-1 top-0 bg-white dark:bg-gray-900 rounded-md border border-gray-300 dark:border-gray-700 overflow-hidden"
       :class="{ 'rounded-t-none': focus && (searching || results.length) }"
@@ -62,7 +62,10 @@
           {{ result.title }}
         </nuxt-link>
       </li>
-    </ul>
+    </ul> -->
+    {{ q }} <br />
+    {{ searching }} <br />
+    {{ results }}
   </div>
 </template>
 
@@ -91,7 +94,7 @@ export default {
       this.searching = true
       this.results = await this.$content({ deep: true })
         .sortBy('position', 'asc')
-        .only(['title', 'slug', 'category', 'to'])
+        .only(['title', 'slug', 'category', 'to', 'tags', 'description'])
         .limit(12)
         .search(q)
         .fetch()

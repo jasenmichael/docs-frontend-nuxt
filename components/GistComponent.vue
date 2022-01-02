@@ -18,6 +18,7 @@
           <icon :icon="['fab', 'github']" class="" />
           <a
             :href="`${gist.html_url}#file-${file.filename.replace('.', '-')}`"
+            target="_blank"
             class="!pl-0"
           >
             {{ file.filename }}

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="prose-lg prose-headings:my-4 prose-hr:border-slate-700 prose-hr:my-8 prose-headings:pt-12 min-w-full"
+    class="prose-lg prose-headings:my-4 prose-hr:border-slate-700 prose-hr:my-8 prose-headings:pt-12"
   >
     <h2 class="not-prose !-mt-16">{{ $utils.slugToTitle(contentPath) }}</h2>
     <div
@@ -15,7 +15,7 @@
         class="list-decimal list-inside text-lg"
       >
         <nuxt-link class="text-xl -mt-4" :to="`#${section.slug}`">{{
-          section.title
+          section.title || $utils.slugToTitle(section.slug)
         }}</nuxt-link>
         <ul class="flex flex-col my-0">
           <li v-for="toc in section.toc" :key="toc.id" class="list-disc my-0">
@@ -62,7 +62,7 @@
           {{ section.title }}
         </div>
         <nuxt-content
-          class="scroll-to w-full overflow-scroll"
+          class="scroll-to w-full prose-xl overflow-scroll"
           :document="section"
         />
       </div>
@@ -82,6 +82,7 @@ import CodeCopyButton from '../components/CodeCopyButton'
 export default {
   name: 'SectionIndex',
   layout: 'DefaultLayout',
+  middleware: 'auth',
   async asyncData({ $content, params, error, store }) {
     const contentPath = params.pathMatch.replace(/\/$/, '')
 

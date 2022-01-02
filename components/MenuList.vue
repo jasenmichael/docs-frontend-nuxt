@@ -4,20 +4,20 @@
       v-for="section in menu"
       v-show="section.slug !== 'README'"
       :key="section.slug"
-      class="items-center text-lg"
+      class="items-center text-lg bord"
       :class="
         section.depth === 0
           ? ''
           : section.depth === 1
           ? 'pl-5 border-l-2 border-slate-700'
           : section.depth === 2
-          ? 'pl-4'
+          ? 'pl-4 border-l-2 border-slate-700'
           : section.depth === 3
-          ? 'pl-6'
+          ? 'pl-6 border-l-2 border-slate-700'
           : section.depth === 4
-          ? 'pl-8'
+          ? 'pl-8 border-l-2 border-slate-700'
           : section.depth === 5
-          ? 'pl-10'
+          ? 'pl-10 border-l-2 border-slate-700'
           : ''
       "
     >

@@ -3,9 +3,10 @@
     <!-- <pre class="overflow-scroll mr-auto dark px-4 min-w-full">{{
       $store.state.menu
     }}</pre> -->
+    <SearchComponent />
     <nuxt-content
       :document="page"
-      class="prose-lg prose-headings:my-4 prose-li:my-1 min-w-full"
+      class="prose-lg prose-headings:my-4 prose-hr:border-slate-700 prose-hr:my-8 prose-headings:pt-12"
     />
   </div>
 </template>
@@ -23,8 +24,5 @@ export default {
       })
     return { page }
   },
-  // data: () => {
-  //   return {}
-  // },
 }
 </script>
