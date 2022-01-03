@@ -1,5 +1,5 @@
 ---
-title: GitHub
+title: Installation
 description: setup
 category: developer
 tags:
