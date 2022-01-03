@@ -93,3 +93,6 @@ sw.*
 static/
 !static/icon.png
 !static/favicon.ico
+
+content/.obsidian/
+content/.trash/
