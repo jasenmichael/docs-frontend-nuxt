@@ -1,10 +1,11 @@
 ---
 title: Environment Setup
-description: ''
+description: Developer environment setup guide.
+category: developer
 tags:
-  - one
-  - two
-  - three
+  - node
+  - local
+  - wordpress
 ---
 
 ## Getting Started

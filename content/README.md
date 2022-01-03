@@ -1,41 +1,70 @@
 ---
-title: Catalyst Documents
-description: ''
+title: About
+description:
 tags:
   - one
   - two
   - three
 ---
 
-Intro
+# **LystDocs**
 
-# Table of Contents
+<hr>
 
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+docs potential structure:
+/content
 
-## Example
+- /Developer
 
-## Example2
+  - /tools-scripts
+    - installation
+    - setup
+    - /usage
+      - wp-export
+      - wp-import
+      - wp-migrate
+      - generate .ssh config
+  - /DevOps
+    - /GitHub Action automatic deploy
+    - /Provisioning Servers With Ansible
+  - /dev-env-setup
 
-## Third Example
+    - GitHub
+    - Local Wordpress (Local by Flywheel)
+    - vs code extentions
+    - misc
+      - .zsh
 
-## [Fourth Example](http://www.fourthexample.com)
+  - resources
+    - fluid responsive design - CSS comparison functions min(), max(), and clamp() for responsive
+      https://utopia.fyi/
+    - https://smolcss.dev/
 
-Empower your NuxtJS application with `@nuxtjs/content` module: write in a `content/` directory and fetch your Markdown, JSON, YAML and CSV files through a MongoDB like API, acting as a **Git-based Headless CMS**.
+- /Downloads
 
-## Writing content
+- /services
 
-Learn how to write your `content/`, supporting Markdown, YAML, CSV and JSON: https://content.nuxtjs.org/writing.
+  - /digital-ocean
+    - create droplet
+    - create droplet snapshot
+    - upgrade server (migrate)
+  - /act-on
+    - import email template
+    - test and schedule email campaign
 
-## Fetching content
-
-Learn how to fetch your content with `$content`: https://content.nuxtjs.org/fetching.
-
-## Displaying content
-
-Learn how to display your Markdown content with the `<nuxt-content>` component directly in your template: https://content.nuxtjs.org/displaying.
-
-niam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam,re dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor i niam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex esequat. Duis aute irud exercitation ull ex ea commodo consequat. Duis aute irure consequat. Duis aute irure dolor i niam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor i niam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea comma commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor i niam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostru quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodoequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor i niam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo conodo consequat. Duis aute irure dolor i niam, quis nostrud exercitation ull ex ea commodo cons dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor i niam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor iniam, quis nostrud exercitation ull ex ea commodo consequat. Duis aute irure dolor i
+- about
+  - contribute
+    - clone docs repository
+    - create or edit content
+    - examples
+      - basic template
+      - embed video
+      - add code snippet
+      - add code snippet from gist
+      - add code snippet from file url
+      - add table from google spreadsheet
+  - server
+  - repositories
+    - docs
+    - frontend
+    - backend
