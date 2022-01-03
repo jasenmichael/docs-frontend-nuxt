@@ -76,6 +76,7 @@ export default {
         'faLink',
         'faCopy',
         'faCheck',
+        'faSearch',
       ],
       brands: ['faGithub'],
     },
@@ -87,6 +88,13 @@ export default {
         theme: 'prism-themes/themes/prism-a11y-dark.css',
       },
     },
+    fullTextSearchFields: [
+      'title',
+      'description',
+      'slug',
+      'text',
+      'tagsString',
+    ],
   },
   publicRuntimeConfig: () => {
     return {
@@ -101,6 +109,27 @@ export default {
           : null,
       ghToken: process.env.GH_TOKEN || null,
     }
+  },
+  hooks: {
+    'content:file:beforeInsert': (document, database) => {
+      if (document.extension === '.md') {
+        if (document.links?.length) {
+          const linkTags = []
+          document.links.forEach((link) => {
+            link.tags.forEach((tag) => {
+              linkTags.push(tag)
+            })
+          })
+          document.tags = [...linkTags, ...document.tags]
+        }
+
+        if (!document.tags?.length) {
+          document.tags = []
+        }
+
+        document.tagsString = document.tags.join(' ')
+      }
+    },
   },
   build: {
     postcss: {
