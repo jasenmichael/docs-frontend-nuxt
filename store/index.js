@@ -29,7 +29,7 @@ export const getters = {
 export const actions = {
   async nuxtServerInit(context, { $content }) {
     const contentFiles = await $content({ deep: true })
-      .only(['path', 'title', 'description', 'slug'])
+      .only(['path', 'title', 'description', 'slug', 'order'])
       .fetch()
     if (process.server) {
       const { getMenu } = require('../plugins/getMenu.js')

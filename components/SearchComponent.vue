@@ -94,8 +94,17 @@ export default {
       this.searching = true
       this.results = await this.$content({ deep: true })
         .sortBy('position', 'asc')
-        .only(['title', 'slug', 'category', 'to', 'tags', 'description'])
-        .limit(12)
+        .only([
+          'title',
+          'slug',
+          'category',
+          'to',
+          'tags',
+          'tagsString',
+          'description',
+          // 'links',
+        ])
+        // .limit(12)
         .search(q)
         .fetch()
       this.searching = false

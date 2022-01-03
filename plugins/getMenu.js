@@ -29,12 +29,13 @@ const getMenu = (contentFiles = [], contentPath = 'content') => {
             }
           })
           .filter((item) => isDir(item.dir))
+          .filter((item) => item.slug.charAt(0) !== '.')
       )
     } else {
       return []
     }
   }
-  function getTitleAndDescriptionBySlugAndFullPath(slug, fullPath) {
+  function getBySlugAndFullPath(slug, fullPath) {
     // console.log(slug, ' -- ', fullPath)
     const item = contentFiles.filter(
       (item) => item.slug === slug && item.path === fullPath
@@ -43,6 +44,7 @@ const getMenu = (contentFiles = [], contentPath = 'content') => {
     return {
       title: item?.title || slugToTitle(slug),
       description: item?.description || '',
+      order: item?.order || 0,
     }
   }
   function getFiles(path) {
@@ -58,8 +60,11 @@ const getMenu = (contentFiles = [], contentPath = 'content') => {
             .replace(`/${contentPath}`, '')
             .replace('//', '/')
             .replace('.md', '')
-          const { title, description } =
-            getTitleAndDescriptionBySlugAndFullPath(slug, fullPath)
+          const { title, description, order } = getBySlugAndFullPath(
+            slug,
+            fullPath
+          )
+          // console.log('order', order);
           return {
             slug,
             type: 'file',
@@ -70,10 +75,13 @@ const getMenu = (contentFiles = [], contentPath = 'content') => {
               .replace('//', '/')
               .replace('//', '/'),
             path: fullPath,
+            order,
             depth: fullPath.split('/').length - 2,
           }
         })
         .filter((item) => !isDir(item.path))
+        .sort((a, b) => (a.order > b.order ? 1 : -1))
+      // .sort((a,b)=> (a.order > b.order ? 1 : -1))
     } else {
       return []
     }

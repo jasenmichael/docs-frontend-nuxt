@@ -12,6 +12,10 @@ const capitalizeString = (str) => {
     .replace(/ The /g, ' the ')
     .replace(/ Of /g, ' of ')
     .replace(/ A /g, ' a ')
+    .replace(/Dev Ops/g, 'DevOps')
+    .replace(/Devops/g, 'DevOps')
+    .replace(/ Ssh /g, ' ssh ')
+    .replace(/Act On/g, 'Act-On ')
 }
 const slugToTitle = (slug) => {
   return capitalizeString(slug.replace(/-/g, ' '))

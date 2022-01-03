@@ -2,7 +2,11 @@
   <div
     class="prose-lg prose-headings:my-4 prose-hr:border-slate-700 prose-hr:my-8 prose-headings:pt-12"
   >
-    <h2 class="not-prose !-mt-16">{{ $utils.slugToTitle(contentPath) }}</h2>
+    <h2 class="not-prose !-mt-16 text-xl text-slate-500">
+      <span v-for="(p, i) in contentPath.split('/')" :key="p + i"
+        >/{{ p }}</span
+      >
+    </h2>
     <div
       v-if="pageSections.length"
       class="mt-4 border-t-2 border-slate-300 w-64 ml-9"
@@ -12,7 +16,7 @@
       <li
         v-for="section in pageSections"
         :key="section.slug"
-        class="list-decimal list-inside text-lg"
+        class="list-none list-inside text-lg"
       >
         <nuxt-link class="text-xl -mt-4" :to="`#${section.slug}`">{{
           section.title || $utils.slugToTitle(section.slug)
@@ -68,6 +72,16 @@
       </div>
     </section>
 
+    <!-- <pre>
+pageSections: {{
+        pageSections.map((i) => ({
+          slug: i.slug,
+          toc: i.toc,
+          links: i.links,
+          yo: i.yo,
+        }))
+      }}</pre
+    > -->
     <!-- <pre
       class="prose overflow-scroll py-6 mr-auto dark px-4 min-w-full max-w-[calc(100vw-428px)]"
       >{{ pageSections }}</pre
@@ -109,11 +123,28 @@ export default {
     })
     // console.log(pageSubFolders)
 
-    const pageSections = await $content(contentPath)
-      .fetch()
-      .catch(() => {
-        error({ statusCode: 404, message: 'Page not found' })
-      })
+    const pageSections = (
+      await $content(contentPath)
+        .sortBy('order')
+        .sortBy('slug')
+        .fetch()
+        .catch(() => {
+          error({ statusCode: 404, message: 'Page not found' })
+        })
+    ).map((i) => {
+      i.toc = i.links
+        ? i.links.map((link) => {
+            return {
+              ...i.toc,
+              id: link.name.toLowerCase().replace(/ /g, '-'),
+              depth: 3,
+              text: link.name,
+            }
+          })
+        : i.toc
+
+      return i
+    })
 
     return {
       pageSections,
