@@ -19,7 +19,9 @@
           >{{ link.tags.join(', ') }}</span
         >
         <br />
-        <div class="text-base ml-8">{{ link.description }}</div>
+        <div v-if="link.description" class="text-base ml-8">
+          {{ link.description }}
+        </div>
       </a>
       <!-- <pre class="overflow-scroll dark prose min-w-[100%]">{{ link }}</pre> -->
     </h2>
