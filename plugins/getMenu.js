@@ -30,6 +30,7 @@ const getMenu = (contentFiles = [], contentPath = 'content') => {
           })
           .filter((item) => isDir(item.dir))
           .filter((item) => item.slug.charAt(0) !== '.')
+          .filter((item) => item.slug.toLowerCase() !== 'templates')
       )
     } else {
       return []
