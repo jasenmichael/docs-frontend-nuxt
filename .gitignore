@@ -88,3 +88,8 @@ sw.*
 
 # Vim swap files
 *.swp
+
+
+static/
+!static/icon.png
+!static/favicon.ico
