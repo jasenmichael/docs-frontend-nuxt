@@ -10,7 +10,7 @@ const copyContentImages = (src, dest, ignore = []) => {
   const exists = fs.existsSync(src)
   const stats = exists && fs.statSync(src)
   const isDirectory = exists && stats.isDirectory()
-  if (isDirectory) {
+  if (isDirectory && !src.includes('content/.git/')) {
     if (!fs.existsSync(dest) || !fs.statSync(src).isDirectory()) {
       fs.mkdirSync(dest)
     }
@@ -23,7 +23,7 @@ const copyContentImages = (src, dest, ignore = []) => {
     })
   } else {
     const ext = path.extname(src)
-    if (!ignore.includes(ext)) {
+    if (!ignore.includes(ext) && !src.includes('content/.git/')) {
       fs.copyFileSync(src, dest)
     }
   }
