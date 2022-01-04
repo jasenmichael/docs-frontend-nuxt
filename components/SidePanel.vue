@@ -9,16 +9,16 @@
       @click="$store.dispatch('setPanelOpen', !panelOpen)"
     ></div>
     <aside
-      class="overflow-scroll scrollbar-hide h-panel fixed bg-slate-800 z-40 text-zinc-100 lg:flex flex-col py-10 transition transform ease-in-out duration-300 mb-12"
+      class="h-full h-panel fixed bg-slate-800 z-40 text-zinc-100 lg:flex flex-col py-10 transition transform ease-in-out duration-300 mb-12"
       :class="!panelOpen ? '-translate-x-full lg:-translate-x-0' : ''"
     >
-      <div>
+      <div class="overflow-scroll">
         <!-- panel menu heading -->
         <p class="mx-8 font-bold border-b-2 border-zinc-400">Sections</p>
         <!-- panel menu links -->
-        <MenuList :menu="getMenu" class="w-[400px] px-8" />
+        <MenuList :menu="getMenu" class="w-[400px] px-8 sticky" />
         <!-- panel menu footer -->
-        <div class="bg-inherit mt-10 mx-8 h-full border-t-2 border-zinc-400">
+        <div class="bg-inherit my-10 mx-8 border-t-2 border-zinc-400">
           <p>nav-footer</p>
         </div>
       </div>

@@ -38,12 +38,8 @@
     </header>
 
     <!-- page wrapper side panel and content -->
-    <div
-      class="flex flex-col flex-grow pt-10 w-full bg-slate-300 items-center justify-center mx-auto"
-    >
-      <div
-        class="flex w-full mx-auto justify-center overflow-scroll scrollbar-hide"
-      >
+    <div class="pt-10 w-full bg-slate-300 items-center justify-center mx-auto">
+      <div class="flex w-full mx-auto justify-center">
         <!-- side panel -->
         <SidePanel :panel-open="panelOpen" :scroll-pos="scrollPos" />
         <!-- @togglePanel="panelOpen = !panelOpen" -->
