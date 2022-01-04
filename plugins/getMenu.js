@@ -81,6 +81,7 @@ const getMenu = (contentFiles = [], contentPath = 'content') => {
           }
         })
         .filter((item) => !isDir(item.path))
+        .filter((item) => item.slug !== 'index')
         .sort((a, b) => (a.order > b.order ? 1 : -1))
       // .sort((a,b)=> (a.order > b.order ? 1 : -1))
     } else {
