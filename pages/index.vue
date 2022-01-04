@@ -17,7 +17,7 @@ export default {
   layout: 'DefaultLayout',
   middleware: 'auth',
   async asyncData({ $content, error }) {
-    const page = await $content('README')
+    const page = await $content('index')
       .fetch()
       .catch(() => {
         error({ statusCode: 404, message: 'Page not found' })
