@@ -9,10 +9,12 @@
       @click="$store.dispatch('setPanelOpen', !panelOpen)"
     ></div>
     <aside
-      class="h-full h-panel fixed bg-slate-800 z-40 text-zinc-100 lg:flex flex-col py-10 transition transform ease-in-out duration-300 mb-12"
+      class="overflow-y-scroll overflow-x-hidden lg:overflow-y-hidden h-full h-panel fixed bg-slate-800 z-40 text-zinc-100 lg:flex flex-col pb-10 transition transform ease-in-out duration-300 mb-12"
       :class="!panelOpen ? '-translate-x-full lg:-translate-x-0' : ''"
     >
-      <div class="overflow-scroll">
+      <div
+        class="overflow-y-hidden lg:overflow-y-scroll lg:overflow-x-hidden pt-10"
+      >
         <!-- panel menu heading -->
         <p class="mx-8 font-bold border-b-2 border-zinc-400">Sections</p>
         <!-- panel menu links -->
