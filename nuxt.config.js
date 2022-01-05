@@ -30,12 +30,29 @@ export default {
     '@nuxtjs/markdownit',
   ],
   markdownit: {
+    injected: true,
     preset: 'default',
-    html: true,
+    runtime: true,
+    html: false,
     linkify: true,
-    typographer: true,
+    typographer: false,
     breaks: true,
-    use: ['markdown-it-div', 'markdown-it-attrs', 'markdown-it-prism'],
+    defaultLanguage: 'js',
+    use: [
+      [
+        'markdown-it-link-attributes',
+        { attrs: { target: '_blank', rel: 'noopener' } },
+      ],
+      'markdown-it-div',
+      'markdown-it-attrs',
+      [
+        'markdown-it-prism',
+        {
+          plugins: [],
+        },
+      ],
+      'markdown-it-emoji',
+    ],
   },
   // axios: {},
   pwa: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="-mt-3">
+  <div class="">
     <a
       v-if="gist"
       class="rounded-md bg-slate-200 p-2"
@@ -80,17 +80,20 @@ export default {
         Object.keys(gist.files).forEach((file) => {
           const gistFile = gist.files[file]
           const language = gistFile.language.toLowerCase()
-          const ext = gistFile.filename.split('.').pop()
-          const content = `\`\`\`${ext}${gistFile.content}`
+          let ext = gistFile.filename.split('.').pop()
+          if (ext === 'sh') {
+            ext = 'js' + '\r\n'
+          }
+          const content = `\`\`\`${ext}${gistFile.content}\r\n\`\`\``
           delete gistFile.content
           this.gistFiles.push({
             ...gistFile,
             slug: gistFile.filename,
             // description: 'example already....',
             title: gistFile.filename,
-            ext,
+            // ext,
             language,
-            body: this.$md.render(content.trim()),
+            body: this.$md.render(content),
           })
         })
       }
