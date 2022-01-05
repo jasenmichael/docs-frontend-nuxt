@@ -9,7 +9,7 @@
     </h2>
     <div
       v-if="pageSections.length"
-      class="mt-4 border-t-2 border-slate-300 w-64 ml-9"
+      class="mt-4 border-t-2 border-slate-300 w-64"
     ></div>
     <!-- files table of contents -->
     <ol v-if="pageSections.length">
@@ -57,16 +57,16 @@
       v-for="section in pageSections"
       :id="section.slug"
       :key="section.slug"
-      class="mt-8 shadow-md"
+      class="mt-8"
     >
-      <div class="bg-slate-100 rounded-md p-2 w-full">
+      <div class="bg-slate-100 rounded-md p-2 w-full shadow-md ml-1">
         <div
-          class="pt-8 text-3xl lg:text-4xl xl:text-5xl underline underline-offset-4 decoration-slate-300"
+          class="pt-8 text-3xl lg:text-4xl xl:text-5xl underline underline-offset-4 decoration-slate-300 ml-2"
         >
           {{ section.title }}
         </div>
         <nuxt-content
-          class="scroll-to w-full prose-xl overflow-scroll"
+          class="scroll-to w-full ml-2 max-w-full"
           :document="section"
         />
       </div>

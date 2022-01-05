@@ -1,8 +1,8 @@
 <template>
-  <div class="">
+  <div class="nuxt-content mr-4 max-w-full lg:max-w-[500px] xl:max-w-full">
     <a
       v-if="gist"
-      class="rounded-md bg-slate-200 p-2"
+      class="rounded-md bg-slate-200 m-2"
       :href="gist.html_url"
       rel="noreferrer noopener"
       target="_blank"
@@ -12,10 +12,10 @@
       <span class="underline text-slate-500">{{ gist.description }}</span>
       <icon icon="link" />
     </a>
-    <div v-for="(file, i) in gistFiles" :key="i">
-      <div class="nuxt-content-highlight">
+    <div v-for="(file, i) in gistFiles" :key="i" class="">
+      <div class="nuxt-content-highlight w-full">
         <span class="filename h-9">
-          <icon :icon="['fab', 'github']" class="" />
+          <icon :icon="['fab', 'github']" />
           <a
             :href="`${gist.html_url}#file-${file.filename.replace('.', '-')}`"
             target="_blank"
